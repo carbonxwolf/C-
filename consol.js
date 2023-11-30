@@ -4,3 +4,6 @@ console.log("hellow world") //2nd time
 function main () {
   return null ; 
 }
+function main () {
+  return null ; 
+}
