@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .custom-cursor {
+    cursor: none;
+  }
+  
+  .custom-cursor-dot {
+    @apply fixed top-0 left-0 w-2 h-2 bg-accent-500 rounded-full pointer-events-none z-50;
+    transform: translate(-50%, -50%);
+  }
+  
+  .custom-cursor-ring {
+    @apply fixed top-0 left-0 w-8 h-8 border-2 border-accent-400 rounded-full pointer-events-none z-50;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease-out;
+  }
+
+  .blur-up {
+    @apply transition-all duration-300;
+    filter: blur(20px);
+  }
+  
+  .blur-up.loaded {
+    filter: blur(0);
+  }
+
+  .glow-effect {
+    @apply shadow-lg shadow-accent-500/50;
+  }
+}
+
+/* Prism Theme Override */
+code[class*="language-"],
+pre[class*="language-"] {
+  @apply text-sm;
+}
+
+.prose {
+  @apply max-w-none;
+}
+
+.prose pre {
+  @apply rounded-xl;
+}
