@@ -1,0 +1,129 @@
+---
+title: "E-Commerce Dashboard"
+slug: "ecommerce-dashboard"
+excerpt: "A comprehensive admin dashboard for managing online stores with real-time analytics."
+heroImage: "https://via.placeholder.com/1200x600/8B5CF6/ffffff?text=E-Commerce+Dashboard"
+tags: ["React", "TypeScript", "Tailwind CSS", "Chart.js", "Redux"]
+type: "Web App"
+tech: ["React 18", "TypeScript", "Tailwind CSS", "Redux Toolkit", "Chart.js", "Vite"]
+metrics:
+  - label: "Performance Score"
+    value: "95/100"
+  - label: "Load Time"
+    value: "< 1.2s"
+  - label: "Bundle Size"
+    value: "180KB gzipped"
+testimonial:
+  text: "Salman delivered an exceptional dashboard that exceeded our expectations. The real-time analytics and intuitive UI have transformed how we manage our store."
+  author: "Sarah Johnson"
+  role: "CEO, ShopTech"
+githubLink: "https://github.com/salmanhafiz/ecommerce-dashboard"
+demoLink: "https://ecommerce-dashboard-demo.vercel.app"
+---
+
+## Project Overview
+
+The E-Commerce Dashboard is a comprehensive admin interface designed to help online store owners manage their products, orders, and analytics in one centralized location. Built with React and TypeScript, it provides real-time updates and an intuitive user experience.
+
+## The Challenge
+
+ShopTech needed a robust admin dashboard that could handle:
+- Real-time order tracking and management
+- Complex data visualization for sales analytics
+- Multi-user access with role-based permissions
+- Fast performance even with large datasets
+- Mobile-responsive design for on-the-go management
+
+## Solution
+
+### Architecture
+
+I designed a scalable architecture using:
+- **React 18** with Concurrent Features for optimal performance
+- **TypeScript** for type safety and better developer experience
+- **Redux Toolkit** for centralized state management
+- **Chart.js** for beautiful, performant data visualizations
+- **Tailwind CSS** for rapid, consistent UI development
+
+### Key Features
+
+#### Real-Time Analytics
+```javascript
+// Real-time data subscription hook
+const useRealtimeAnalytics = () => {
+  const [data, setData] = useState(null);
+  
+  useEffect(() => {
+    const subscription = analyticsService.subscribe((newData) => {
+      setData(newData);
+    });
+    
+    return () => subscription.unsubscribe();
+  }, []);
+  
+  return data;
+};
+```
+
+#### Optimized Data Tables
+Implemented virtualized tables to handle thousands of rows efficiently:
+- Lazy loading with infinite scroll
+- Smart caching to reduce API calls
+- Debounced search and filtering
+
+#### Role-Based Access Control
+```typescript
+// RBAC implementation
+type Permission = 'read' | 'write' | 'delete' | 'admin';
+
+interface UserRole {
+  name: string;
+  permissions: Permission[];
+}
+
+const checkPermission = (user: User, required: Permission): boolean => {
+  return user.role.permissions.includes(required);
+};
+```
+
+## Results
+
+The dashboard has been a game-changer for ShopTech:
+- **40% reduction** in order processing time
+- **95/100 Lighthouse Performance** score
+- **< 1.2s** average load time
+- **Zero production bugs** in first 3 months
+
+## Technical Highlights
+
+### Performance Optimization
+- Code splitting for route-based lazy loading
+- Memoization of expensive computations
+- Web Workers for heavy data processing
+- Optimistic UI updates for better perceived performance
+
+### Accessibility
+- WCAG 2.1 Level AA compliant
+- Full keyboard navigation support
+- Screen reader friendly
+- High contrast mode support
+
+### Testing
+- 85% code coverage with Jest
+- E2E tests with Playwright
+- Visual regression testing with Chromatic
+
+## Lessons Learned
+
+This project reinforced the importance of:
+1. **Planning state management early** - Redux Toolkit's structure prevented technical debt
+2. **Performance budgets** - Set and maintained strict bundle size limits
+3. **User feedback loops** - Regular demos with stakeholders led to better UX decisions
+4. **Comprehensive testing** - Caught edge cases that would have been costly bugs
+
+## Future Enhancements
+
+- AI-powered sales predictions
+- Advanced reporting with PDF export
+- Mobile app using React Native
+- WebSocket for even faster real-time updates
